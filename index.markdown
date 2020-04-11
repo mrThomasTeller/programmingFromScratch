@@ -7,7 +7,6 @@ layout: home
 
 # Оглавление
 
-[Подготовка к курсу](./pages/0.prepare)
-
+0. [Подготовка к курсу](./pages/0.prepare)
 1. [Первая программа](./pages/1.first-program)
 2. [Циклы (for)](./pages/2.for)
