@@ -7,4 +7,4 @@ layout: home
 
 # Оглавление
 
-1. [Подготовка к курсу](./pages/prepare)
+[Подготовка к курсу](./pages/prepare)
