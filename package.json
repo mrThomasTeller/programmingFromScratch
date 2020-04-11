@@ -1,0 +1,11 @@
+{
+  "name": "studybook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mrThomasTeller/programming0.git",
+  "author": "Artyom Bakharev <abakharev@sharevault.com>",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git add -A && git commit -m \"up\" && git push"
+  }
+}
