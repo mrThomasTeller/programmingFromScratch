@@ -8,5 +8,8 @@
   "scripts": {
     "commit": "git add -A && git commit -m \"up\" && git push",
     "start": "bundle exec jekyll serve"
+  },
+  "dependencies": {
+    "@types/node": "^13.11.1"
   }
 }
