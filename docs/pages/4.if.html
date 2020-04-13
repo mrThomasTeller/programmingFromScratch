@@ -28,7 +28,7 @@
           </span>
         </label>
 
-        <!-- <div class="trigger"><a class="page-link" href="/programming0/pages/0.prepare.html">0. Подготовка к курсу</a><a class="page-link" href="/programming0/pages/1.first-program.html">1. Первая программа</a><a class="page-link" href="/programming0/pages/2.for.html">2. Циклы (for)</a><a class="page-link" href="/programming0/pages/3.vars.html">3. Переменные</a><a class="page-link" href="/programming0/pages/4.if.html">4. Ветвления (if)</a><a class="page-link" href="/programming0/pages/5.if-for.html">5. Совмещаем ветвления и циклы (if и for)</a><a class="page-link" href="/programming0/about/"></a></div> -->
+        <!-- <div class="trigger"><a class="page-link" href="/programming0/pages/0.prepare.html">0. Подготовка к курсу</a><a class="page-link" href="/programming0/pages/1.first-program.html">1. Первая программа</a><a class="page-link" href="/programming0/pages/2.for.html">2. Циклы (for)</a><a class="page-link" href="/programming0/pages/3.vars.html">3. Переменные</a><a class="page-link" href="/programming0/pages/4.if.html">4. Ветвления (if)</a><a class="page-link" href="/programming0/pages/5.if-for.html">5. Совмещаем ветвления и циклы (if и for)</a><a class="page-link" href="/programming0/pages/6.for-numbers-strings.html">6. Операции с числами и строками в цикле</a><a class="page-link" href="/programming0/about/"></a></div> -->
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -40,11 +40,51 @@
   </header>
 
   <div class="post-content">
-    <hr />
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// выполнится если a больше b</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// выполнится если a не больше b</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// выполнится если a больше b</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// выполнится если a равно b</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// выполнится если a не больше и не равно b</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Переменные можно сравнивать между собой или с числом или со строкой:</p>
+
+<ul>
+  <li>больше: a &gt; b</li>
+  <li>больше либо равно: a &gt;= b</li>
+  <li>меньше: a &lt; b</li>
+  <li>меньше либо равно: a &lt;= b</li>
+  <li>равно: a === b</li>
+</ul>
+
+<p>С помощью этих операторов можно составлять логические выражения:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">a &gt; b &amp;&amp; b &gt; c</code>: a больше b И b больше c</li>
+  <li><code class="highlighter-rouge">a &gt; b || b &gt; c</code>: a больше b ИЛИ b больше c</li>
+  <li><code class="highlighter-rouge">!(a &gt; b)</code>: а НЕ больше b, то же самое что <code class="highlighter-rouge">a &lt;= b</code></li>
+</ul>
+
+<p>С помощью оператора “%” можно вычислять остаток от деления:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// остаток десяти от деления на три = 1</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// остаток десяти от деления на два = 0</span>
+</code></pre></div></div>
+
+<hr />
 
 <p><em><strong>Задание 4-1</strong></em></p>
 
-<p>Объявите две переменные a и b (например, a=1, b=2). Выведете на экран фразу “a больше b” или “b больше a”</p>
+<p>Объявите две переменные не равные друг другу a и b (например, a=1, b=2). Выведете на экран фразу “a больше b” или “b больше a”</p>
 
 <hr />
 
@@ -68,6 +108,12 @@
 
 <p><em><strong>Задание 4-5</strong></em></p>
 
+<p>Дано число x. Выведете на экран “чётное” или “нечётное”.</p>
+
+<hr />
+
+<p><em><strong>Задание 4-6</strong></em></p>
+
 <p>Даны числа a, b и c. Решите квадратное уравнение ax^2+bx+c=0 по алгоритму:</p>
 
 <ol>
@@ -81,7 +127,7 @@ x2 = (-b-√d) / 2a</li>
 
 <hr />
 
-<p><em><strong>Задание 4-6</strong></em></p>
+<p><em><strong>Задание 4-7</strong></em></p>
 
 <p>В переменной year записан год (например, year = 2020). Выведете на экран високосный он или обычный по алгоритму:</p>
 

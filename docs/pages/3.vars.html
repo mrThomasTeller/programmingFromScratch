@@ -28,7 +28,7 @@
           </span>
         </label>
 
-        <!-- <div class="trigger"><a class="page-link" href="/programming0/pages/0.prepare.html">0. Подготовка к курсу</a><a class="page-link" href="/programming0/pages/1.first-program.html">1. Первая программа</a><a class="page-link" href="/programming0/pages/2.for.html">2. Циклы (for)</a><a class="page-link" href="/programming0/pages/3.vars.html">3. Переменные</a><a class="page-link" href="/programming0/pages/4.if.html">4. Ветвления (if)</a><a class="page-link" href="/programming0/pages/5.if-for.html">5. Совмещаем ветвления и циклы (if и for)</a><a class="page-link" href="/programming0/about/"></a></div> -->
+        <!-- <div class="trigger"><a class="page-link" href="/programming0/pages/0.prepare.html">0. Подготовка к курсу</a><a class="page-link" href="/programming0/pages/1.first-program.html">1. Первая программа</a><a class="page-link" href="/programming0/pages/2.for.html">2. Циклы (for)</a><a class="page-link" href="/programming0/pages/3.vars.html">3. Переменные</a><a class="page-link" href="/programming0/pages/4.if.html">4. Ветвления (if)</a><a class="page-link" href="/programming0/pages/5.if-for.html">5. Совмещаем ветвления и циклы (if и for)</a><a class="page-link" href="/programming0/pages/6.for-numbers-strings.html">6. Операции с числами и строками в цикле</a><a class="page-link" href="/programming0/about/"></a></div> -->
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -40,7 +40,129 @@
   </header>
 
   <div class="post-content">
-    <hr />
+    <!---
+В прошлом уроке мы выводили квадратную матрицу
+
+```js
+for (let i = 0; i < 10; ++i) {
+  for (let j = 0; j < 10; ++j) {
+    process.stdout.write("0");
+  }
+  process.stdout.write("\n");
+}
+```
+
+Здесь мы два раза указываем цифру 10 - размер матрицы. Давайте сделаем так, чтобы размер матрицы можно было менять изменив только одну строчку. Для этого нужно вынести цифру 10 в переменную, вот таким образом:
+
+```js
+let size = 10;
+
+for (let i = 0; i < size; ++i) {
+  for (let j = 0; j < size; ++j) {
+    process.stdout.write("0");
+  }
+  process.stdout.write("\n");
+}
+```
+
+`let size = 10;` - это объявление переменной. Её имя size, а значение - 10. Теперь в дальнейшем коде нашей программы мы можем писать size вместо 10. Ещё давайте вынесем в переменную символ "0", из которого состоит наша матрица:
+
+```js
+let size = 10;
+let digit = "0";
+
+for (let i = 0; i < size; ++i) {
+  for (let j = 0; j < size; ++j) {
+    process.stdout.write(digit);
+  }
+  process.stdout.write("\n");
+}
+```
+
+Теперь мы можем поменять размер и наполнение матрицы просто поменяв переменные:
+
+```js
+let size = 4;
+let digit = "+";
+
+for (let i = 0; i < size; ++i) {
+  for (let j = 0; j < size; ++j) {
+    process.stdout.write(digit);
+  }
+  process.stdout.write("\n");
+}
+```
+
+Выведет:
+
+```
+++++
+++++
+++++
+++++
+```
+-->
+
+<p>Комментарии:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// здесь можно писать всё что угодно</span>
+<span class="cm">/*
+Здесь много строчек
+*/</span>
+</code></pre></div></div>
+
+<p>Объявление и использование переменных:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Типы данных:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// число</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// строка</span>
+</code></pre></div></div>
+
+<p>Операции с числами:</p>
+
+<ul>
+  <li>a + b</li>
+  <li>a - b</li>
+  <li>a * b</li>
+  <li>a / b</li>
+  <li>a * (b + c)</li>
+  <li>-a</li>
+</ul>
+
+<p>Операции со строками:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"Привет"</code> + <code class="highlighter-rouge">", "</code> + <code class="highlighter-rouge">"меня зовут Артём"</code></li>
+</ul>
+
+<p>Можно складывать строки и числа</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"Мне "</code> + age + <code class="highlighter-rouge">" лет"</code></li>
+</ul>
+
+<p><code class="highlighter-rouge">process.stdout.write</code> принимает только строки, чтобы вывести число нужно <em>привести его к строке</em>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">x</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Переменным можно присваивать результат выражения:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">// sum будет равно 3</span>
+</code></pre></div></div>
+
+<hr />
 
 <p><em><strong>Задание 3-1</strong></em></p>
 
