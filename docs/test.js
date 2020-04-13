@@ -1,10 +1,5 @@
-import * as readline from "readline";
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+let a = 1;
+let b = 2;
+let sum = a + b;
 
-rl.q;
-
-process.stdout.write("num?\n");
-const k = process.stdin.process.stdout.write(String(k));
+console.log("сумма = " + sum);
