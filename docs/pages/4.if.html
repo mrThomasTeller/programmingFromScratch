@@ -40,21 +40,29 @@
   </header>
 
   <div class="post-content">
-    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// выполнится если a больше b</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="c1">// выполнится если a не больше b</span>
+    <p>Говоря простым языком ветвление - это условие “Если”. Например, решим такую задачку: нам надо узнать какая из двух переменных меньше и вывести её на экран. Разобьём задачу на две части. Сначала выведем <code class="highlighter-rouge">a</code> если оно меньше чем <code class="highlighter-rouge">b</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// выполнится если a больше b</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// выполнится если a равно b</span>
+<p>В круглых скобках после <code class="highlighter-rouge">if</code> записано условие <code class="highlighter-rouge">a &lt; b</code> - <code class="highlighter-rouge">a</code> меньше <code class="highlighter-rouge">b</code>. Если условие истинно, то выполнится блок кода заключённый между первыми фигурными скобками <code class="highlighter-rouge">console.log(a);</code>. Теперь добавим блок кода, который выполнится если это условие ложно (<code class="highlighter-rouge">a</code> не меньше <code class="highlighter-rouge">b</code>):</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="c1">// выполнится если a не больше и не равно b</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<p><code class="highlighter-rouge">else</code> означает “иначе”. То есть если условие в круглых скобках ложно, то выполняется блок кода заключённый в фигурных скобках после else - <code class="highlighter-rouge">console.log(b);</code>;</p>
 
 <p>Переменные можно сравнивать между собой или с числом или со строкой:</p>
 
@@ -66,20 +74,6 @@
   <li>равно: a === b</li>
 </ul>
 
-<p>С помощью этих операторов можно составлять логические выражения:</p>
-
-<ul>
-  <li><code class="highlighter-rouge">a &gt; b &amp;&amp; b &gt; c</code>: a больше b И b больше c</li>
-  <li><code class="highlighter-rouge">a &gt; b || b &gt; c</code>: a больше b ИЛИ b больше c</li>
-  <li><code class="highlighter-rouge">!(a &gt; b)</code>: а НЕ больше b, то же самое что <code class="highlighter-rouge">a &lt;= b</code></li>
-</ul>
-
-<p>С помощью оператора “%” можно вычислять остаток от деления:</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// остаток десяти от деления на три = 1</span>
-<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// остаток десяти от деления на два = 0</span>
-</code></pre></div></div>
-
 <hr />
 
 <p><em><strong>Задание 4-1</strong></em></p>
@@ -88,9 +82,62 @@
 
 <hr />
 
+<p><br /><br /></p>
+
+<p>Теперь давайте выведем на экран “a больше b” либо “a равно b” либо “a меньше b”.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">a больше b</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">a равно b</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">a меньше b</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Этот код можно прочитать так:</p>
+
+<ol>
+  <li>Если a &gt; b, то выводим “a больше b”</li>
+  <li>Иначе если a === b, то выводим “а равно b”</li>
+  <li>Иначе выводим “a меньше b”</li>
+</ol>
+
+<hr />
+
 <p><em><strong>Задание 4-2</strong></em></p>
 
 <p>В переменной age задан возраст в годах. Если возраст до 7 выведете на экран “ребёнок”, если от 7 до 17 - выведете “подросток”, если 18 и больше - “взрослый”</p>
+
+<hr />
+
+<p><br /><br /></p>
+
+<p>С помощью этих операторов можно составлять логические выражения:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">a &gt; b &amp;&amp; b &gt; c</code>: a больше b <strong>И</strong> b больше c</li>
+  <li><code class="highlighter-rouge">a &gt; b || b &gt; c</code>: a больше b <strong>ИЛИ</strong> b больше c. Истинно и в том случае если a больше b <strong>И</strong> b больше c;</li>
+  <li><code class="highlighter-rouge">!(a &gt; b)</code>: а <strong>НЕ</strong> больше b, то же самое что <code class="highlighter-rouge">a &lt;= b</code></li>
+</ul>
+
+<p>Например:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">b</span> <span class="o">&gt;</span> <span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span> <span class="o">&lt;</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">b больше а, но меньше c</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">b</span> <span class="o">&gt;</span> <span class="nx">a</span> <span class="o">||</span> <span class="nx">b</span> <span class="o">&lt;</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">b больше а или b меньше c или и то и другое</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <hr />
 
@@ -103,6 +150,22 @@
 <p><em><strong>Задание 4-4</strong></em></p>
 
 <p>Объявите три переменные a, b и c (например, a=3, b=2, c=4). Пользуясь операторами if выведете среднее из них (больше одного но меньше другого).</p>
+
+<hr />
+
+<p><br /><br /></p>
+
+<p>С помощью оператора “%” можно вычислять остаток от деления:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// остаток десяти от деления на три = 1</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">%</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// остаток десяти от деления на четыре = 0</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">3874</span> <span class="o">%</span> <span class="mi">9</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">3874 делится на 9</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Выражение в скобках <code class="highlighter-rouge">(3874 % 9 === 0)</code> - это условие: равен ли остаток от деления 3874 на 9 нулю?</p>
 
 <hr />
 

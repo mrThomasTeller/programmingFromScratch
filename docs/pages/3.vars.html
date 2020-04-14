@@ -40,68 +40,61 @@
   </header>
 
   <div class="post-content">
-    <!---
-В прошлом уроке мы выводили квадратную матрицу
+    <p>В прошлом уроке мы выводили квадратную матрицу</p>
 
-```js
-for (let i = 0; i < 10; ++i) {
-  for (let j = 0; j < 10; ++j) {
-    process.stdout.write("0");
-  }
-  process.stdout.write("\n");
-}
-```
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-Здесь мы два раза указываем цифру 10 - размер матрицы. Давайте сделаем так, чтобы размер матрицы можно было менять изменив только одну строчку. Для этого нужно вынести цифру 10 в переменную, вот таким образом:
+<p>Здесь мы два раза указываем цифру 10 - размер матрицы. Давайте сделаем так, чтобы размер матрицы можно было менять изменив только одну строчку. Для этого нужно вынести цифру 10 в переменную, вот таким образом:</p>
 
-```js
-let size = 10;
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 
-for (let i = 0; i < size; ++i) {
-  for (let j = 0; j < size; ++j) {
-    process.stdout.write("0");
-  }
-  process.stdout.write("\n");
-}
-```
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-`let size = 10;` - это объявление переменной. Её имя size, а значение - 10. Теперь в дальнейшем коде нашей программы мы можем писать size вместо 10. Ещё давайте вынесем в переменную символ "0", из которого состоит наша матрица:
+<p><code class="highlighter-rouge">let size = 10;</code> - это объявление переменной. Её имя size, а значение - 10. Теперь в дальнейшем коде нашей программы мы можем писать size вместо 10. Ещё давайте вынесем в переменную символ “0”, из которого состоит наша матрица:</p>
 
-```js
-let size = 10;
-let digit = "0";
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">digit</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">;</span>
 
-for (let i = 0; i < size; ++i) {
-  for (let j = 0; j < size; ++j) {
-    process.stdout.write(digit);
-  }
-  process.stdout.write("\n");
-}
-```
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">digit</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-Теперь мы можем поменять размер и наполнение матрицы просто поменяв переменные:
+<p>Теперь мы можем поменять размер и наполнение матрицы просто поменяв переменные:</p>
 
-```js
-let size = 4;
-let digit = "+";
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">digit</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">+</span><span class="dl">"</span><span class="p">;</span>
 
-for (let i = 0; i < size; ++i) {
-  for (let j = 0; j < size; ++j) {
-    process.stdout.write(digit);
-  }
-  process.stdout.write("\n");
-}
-```
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">size</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">digit</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-Выведет:
+<p>Выведет:</p>
 
-```
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gi">++++
 ++++
 ++++
 ++++
-++++
-```
--->
+</span></code></pre></div></div>
 
 <p>Комментарии:</p>
 
