@@ -155,6 +155,26 @@
 <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">// sum будет равно 3</span>
 </code></pre></div></div>
 
+<p>Обратите внимание, когда в задаче написано “объявите переменную x” или “дано x” это значит, что вы объявляете такие переменные в начале программы:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">Переменная x равна </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">Переменная y равна </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">y</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>И это значит, что если мы поменяем значение переменной в начале программы то вывод программы должен оставаться правильным. То есть вот это неправильное решение так как если мы поменяем значения переменных в начале программы, то вывод программы останется тем же самым:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">Переменная x равна 10</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// не верно</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">Переменная y равна 12</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// не верно</span>
+</code></pre></div></div>
+
 <hr />
 
 <p><em><strong>Задание 3-1</strong></em></p>
