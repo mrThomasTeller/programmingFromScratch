@@ -3,17 +3,17 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Совмещаем ветвления и циклы (if и for) | Программирование с нуля</title>
+<title>5.b. Совмещаем ветвления и циклы (if и for) | Программирование с нуля</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Совмещаем ветвления и циклы (if и for)" />
+<meta property="og:title" content="5.b. Совмещаем ветвления и циклы (if и for)" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
 <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://localhost:4000/programming0/pages/5.if-for.html" />
-<meta property="og:url" content="http://localhost:4000/programming0/pages/5.if-for.html" />
+<link rel="canonical" href="http://localhost:4000/programming0/pages/5.b.if-for.html" />
+<meta property="og:url" content="http://localhost:4000/programming0/pages/5.b.if-for.html" />
 <meta property="og:site_name" content="Программирование с нуля" />
 <script type="application/ld+json">
-{"headline":"Совмещаем ветвления и циклы (if и for)","url":"http://localhost:4000/programming0/pages/5.if-for.html","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@type":"WebPage","@context":"https://schema.org"}</script>
+{"headline":"5.b. Совмещаем ветвления и циклы (if и for)","url":"http://localhost:4000/programming0/pages/5.b.if-for.html","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/programming0/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/programming0/feed.xml" title="Программирование с нуля" /></head>
 <body><header class="site-header" role="banner">
@@ -28,7 +28,7 @@
           </span>
         </label>
 
-        <!-- <div class="trigger"><a class="page-link" href="/programming0/pages/0.prepare.html">0. Подготовка к курсу</a><a class="page-link" href="/programming0/pages/1.first-program.html">1. Первая программа</a><a class="page-link" href="/programming0/pages/2.for.html">2. Циклы (for)</a><a class="page-link" href="/programming0/pages/3.vars.html">3. Переменные</a><a class="page-link" href="/programming0/pages/4.if.html">4. Ветвления (if)</a><a class="page-link" href="/programming0/pages/5.if-for.html">5. Совмещаем ветвления и циклы (if и for)</a><a class="page-link" href="/programming0/pages/6.for-numbers-strings.html">6. Операции с числами и строками в цикле</a><a class="page-link" href="/programming0/about/"></a></div> -->
+        <!-- <div class="trigger"><a class="page-link" href="/programming0/pages/0.prepare.html">0. Подготовка к курсу</a><a class="page-link" href="/programming0/pages/1.first-program.html">1. Первая программа</a><a class="page-link" href="/programming0/pages/2.for.html">2. Циклы (for)</a><a class="page-link" href="/programming0/pages/3.vars.html">3. Переменные</a><a class="page-link" href="/programming0/pages/4.if.html">4. Ветвления (if)</a><a class="page-link" href="/programming0/pages/5.a.if-for.html">5.a. Совмещаем ветвления и циклы (if и for)</a><a class="page-link" href="/programming0/pages/5.b.if-for.html">5.b. Совмещаем ветвления и циклы (if и for)</a><a class="page-link" href="/programming0/pages/6.for-numbers-strings.html">6. Операции с числами в цикле</a><a class="page-link" href="/programming0/about/"></a></div> -->
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -36,14 +36,17 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">5. Совмещаем ветвления и циклы (if и for)</h1>
+    <h1 class="post-title">5.b. Совмещаем ветвления и циклы (if и for)</h1>
   </header>
 
   <div class="post-content">
-    <p>Внутри цикла можно использовать переменную цикла:</p>
+    <p>Вспомним как мы выводили матрицу нулей:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// выведет десять цифр от нуля до девяти</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -119,35 +122,126 @@
   </tbody>
 </table>
 
-<p>Например, чтобы вывести половину матрицы иксов, а половину игреков:</p>
+<hr />
+
+<p><em><strong>Задание 5.b-1</strong></em></p>
+
+<p>Выведете такую матрицу 5x5:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0/0 0/1 0/2 0/3 0/4
+1/0 1/1 1/2 1/3 1/4
+2/0 2/1 2/2 2/3 2/4
+3/0 3/1 3/2 3/3 3/4
+4/0 4/1 4/2 4/3 4/4
+</code></pre></div></div>
+
+<p>Здесь в каждой клетке матрицы сначала идёт номер строки затем номер столбца. Например: 2/3 - вторая строка, третий столбец.</p>
+
+<hr />
+
+<p><br /><br /></p>
+
+<p>А теперь давайте выведем матрицу 6x6: половину матрицы иксов, а половину игреков. Это должно выглядеть вот так:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x x x x x x
+x x x x x x
+x x x x x x
+y y y y y y
+y y y y y y
+y y y y y y
+</code></pre></div></div>
+
+<p>Сначала нарисуем эту матрицу на бумаге, обозначив строки (i) и столбцы (j):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>i↓ j→</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>0</strong></td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td><strong>1</strong></td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td><strong>2</strong></td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <td><strong>3</strong></td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td><strong>4</strong></td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <td><strong>5</strong></td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Обратите внимание, там где у нас иксы i равно 0, 1 и 2. Там где игреки i равно 3, 4 и 5. То есть мы выводим “x” когда <code class="highlighter-rouge">i &lt; 3</code>:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="o">++</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">);</span>
+      <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">x </span><span class="dl">"</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">);</span>
+      <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="s2">y </span><span class="dl">"</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
   <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="dl">"</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Выведет</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">000000</span><span class="p">;</span>
-<span class="mi">000000</span><span class="p">;</span>
-<span class="mi">000000</span><span class="p">;</span>
-<span class="mi">111111</span><span class="p">;</span>
-<span class="mi">111111</span><span class="p">;</span>
-<span class="mi">111111</span><span class="p">;</span>
-</code></pre></div></div>
-
 <hr />
 
-<p><em><strong>Задание 5-1</strong></em></p>
+<p><em><strong>Задание 5.b-1</strong></em></p>
 
-<p>Используя два цикла (for) и одно ветвление (if/else) выведете матрицы 10x10:</p>
+<p>Используя два цикла (for) и одно ветвление (if/else) выведете матрицы 10x10. Подсказка: на каждом шаге цикла думайте какая сейчас строка и какой сейчас столбец и как исходя из этого можно понять выводить 0 или 1.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0
@@ -191,13 +285,13 @@
 
 <hr />
 
-<p><em><strong>Задание 5-2</strong></em></p>
+<p><em><strong>Задание 5.b-2</strong></em></p>
 
 <p>Выведете матрицы как в предыдущем задании, но размер матрицы должен быть заранее задан переменной n (n строк, n столбцов).</p>
 
 <hr />
 
-<p><em><strong>Задание 5-3</strong></em></p>
+<p><em><strong>Задание 5.b-3</strong></em></p>
 
 <p>Дано n - размер матрицы. Пользуясь двумя циклами и одним ветвлением выведете на экран:</p>
 
@@ -215,7 +309,7 @@
 
 <hr />
 
-<p><em><strong>Задание 5-4</strong></em></p>
+<p><em><strong>Задание 5.b-4</strong></em></p>
 
 <p>Дано n - размер матрицы. Пользуясь двумя циклами и одним ветвлением выведете на экран:</p>
 
@@ -233,7 +327,7 @@
 
 <hr />
 
-<p><em><strong>Задание 5-5</strong></em></p>
+<p><em><strong>Задание 5.b-5</strong></em></p>
 
 <p>Дано n - размер матрицы. Пользуясь двумя циклами и одним ветвлением выведете на экран:</p>
 
@@ -251,7 +345,7 @@
 
 <hr />
 
-<p><em><strong>Задание 5-6</strong></em></p>
+<p><em><strong>Задание 5.b-6</strong></em></p>
 
 <p>Дано n - размер матрицы. Пользуясь двумя циклами и одним ветвлением выведете на экран:</p>
 
@@ -269,7 +363,7 @@
 
 <hr />
 
-<p><em><strong>Задание 5-7</strong></em></p>
+<p><em><strong>Задание 5.b-7</strong></em></p>
 
 <p>Дано n - размер матрицы. Выведете на экран шахматную доску:</p>
 
@@ -289,7 +383,7 @@
 
 <hr />
 
-<p><em><strong>Задание 5-8</strong></em></p>
+<p><em><strong>Задание 5.b-8</strong></em></p>
 
 <p>Дано n &lt; 10 - размер матрицы. Выведете на экран:</p>
 
@@ -307,7 +401,25 @@
 
 <hr />
 
-<p><em><strong>Задание 5-9</strong></em></p>
+<p><em><strong>Задание 5.b-9*</strong></em></p>
+
+<p>Дано n - размер матрицы. Выведете на экран:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 1 1 1 1 1 1 1 1 0
+0 0 1 1 1 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0
+0 0 0 0 1 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 5.b-10*</strong></em></p>
 
 <p>Дано n - размер матрицы. Выведете на экран:</p>
 
