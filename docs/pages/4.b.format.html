@@ -74,7 +74,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Есть очень простое правило для форматирования:</p>
+<p>Есть очень простые правила для форматирования:</p>
 
 <ol>
   <li>Каждая переменная объявляется на отдельной строке</li>
@@ -85,7 +85,10 @@
 </ol>
 
 <!-- prettier-ignore -->
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// фигурная скобка идёт на той же строке</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// каждая переменная на отдельной строке</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// фигурная скобка идёт на той же строке</span>
   <span class="c1">// после фигурной скобки мы увеличили отступ на один tab</span>
   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// ещё одна фигурная скобка, мы увеличили отступ и теперь он - два tab</span>
     <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
