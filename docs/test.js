@@ -1,5 +1,6 @@
-let a = 1;
-let b = 2;
-let sum = a + b;
-
-console.log("сумма = " + sum);
+let x = 3;
+let result = 1;
+while (result < 1000) {
+  console.log(result);
+  result *= x;
+}
