@@ -40,7 +40,27 @@
   </header>
 
   <div class="post-content">
-    <p>Говоря простым языком ветвление - это условие “Если”.</p>
+    <h2 id="consolelog">console.log</h2>
+
+<p>Для удобства можно использовать <code class="highlighter-rouge">console.log("привет")</code> вместо <code class="highlighter-rouge">process.stdout.write("привет\n")</code>. <code class="highlighter-rouge">console.log</code> всегда выводит в конце <code class="highlighter-rouge">\n</code>. Также в console.log можно передавать всё что угодно, а не только строки.</p>
+
+<p>Значение переменной можно менять:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 2</span>
+</code></pre></div></div>
+
+<p>При присваивании можно использовать в выражении саму эту переменную:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 11</span>
+</code></pre></div></div>
+
+<h2 id="if---если">if - Если</h2>
+
+<p>Говоря простым языком ветвление - это условие “Если”.</p>
 
 <p>Например, решим такую задачку: нам надо узнать какая из двух переменных меньше и вывести её на экран. Для простоты пока допустим, что переменные не равны друг другу. Разобьём задачу на две части. Сначала выведем <code class="highlighter-rouge">a</code> если оно меньше чем <code class="highlighter-rouge">b</code>:</p>
 
