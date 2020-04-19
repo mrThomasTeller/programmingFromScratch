@@ -16,6 +16,9 @@
           </span>
         </label>
 
+        <input id="search-input" placeholder="Поиск по сайту" />
+        <button id="search-button">🔎</button>
+
         <!-- <div class="trigger">
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
@@ -27,4 +30,16 @@
       </nav>
     {%- endif -%}
   </div>
+  <script>
+(function(){
+    function search(){
+      var value = document.getElementById('search-input').value;
+      location.href = "https://github.com/mrThomasTeller/programming0/search?l=Markdown&q=" + encodeURIComponent(value);
+    }
+    document.getElementById('search-button').addEventListener('click', search);
+    document.getElementById('search-input').addEventListener('keypress', function(e){
+      if (e.key === 'Enter') search();
+    });
+})();
+  </script>
 </header>
