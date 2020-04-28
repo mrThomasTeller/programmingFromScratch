@@ -55,21 +55,23 @@
   </header>
 
   <div class="post-content">
-    <p>Значение переменной можно менять:</p>
+    <p>Вы уже знаете, что в переменной можно хранить любое значение (число, строку и др.). Но значение переменной так же можно изменять с помощью знака <code class="highlighter-rouge">=</code>:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 2</span>
 </code></pre></div></div>
 
-<p>При присваивании можно использовать в выражении саму эту переменную:</p>
+<p>Именно поэтому для <strong>сравнения</strong> переменных мы используем тройное равно <code class="highlighter-rouge">===</code>, потому что одинарное равно <code class="highlighter-rouge">=</code> используется для изменения значения переменной. Изменение значения переменной называется <code class="highlighter-rouge">присваивание</code>.</p>
+
+<p>Так же при присваивании можно использовать в выражении саму эту переменную:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 11</span>
 </code></pre></div></div>
 
-<p>Для краткости используйте:</p>
+<p>Для краткости можно использовать такие операторы присваивания:</p>
 
 <table>
   <thead>
@@ -105,9 +107,18 @@
 
 <hr />
 
+<p>То есть предыдущий пример будет выглядеть так:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 11</span>
+</code></pre></div></div>
+
 <p><em><strong>Задание 6-1</strong></em></p>
 
-<p>Выведите n первых степеней числа x. То есть x^0, x^1, x^2, x^3, … и так n раз. Используйте только один цикл. <em>Не</em> используйте функции возведения в степень Math.pow и **. Вы их ещё и не должны знать :)</p>
+<p>Выведите n первых степеней числа x. То есть x^0, x^1, x^2, x^3, … и так n раз. Используйте только один цикл. <em>Не</em> используйте функции возведения в степень Math.pow и **.</p>
+
+<p>Подсказка: вам понадобится оператор <code class="highlighter-rouge">*=</code>.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n = 4
 x = 2
@@ -127,17 +138,9 @@ x = 2
 
 <p><br /><br /></p>
 
-<p>Цикл while позволяет повторять код пока не выполнится какое-то условие. Например, вот этот код выведет все степени числа x пока они не превысят 1000 (то есть x^0, x^1, x^2 и т.д.).</p>
+<p>Нам уже хорошо знаком цикл <code class="highlighter-rouge">for</code>: он делает заранее известное количество шагов. Но что если нам нужно сделать несколько шагов, но мы не знаем заранее сколько? Для этого существует цикл <code class="highlighter-rouge">while</code>.</p>
 
-<!-- prettier-ignore -->
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">result</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
-  <span class="nx">result</span> <span class="o">*=</span> <span class="nx">x</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="dl">''</span><span class="p">;</span>
-</code></pre></div></div>
+<p>Давайте решим такую задачу: выведем все степени числа x пока они не превысят 1000. Для x = 3 это должно выглядеть так:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
 3
@@ -146,6 +149,22 @@ x = 2
 81
 243
 729
+</code></pre></div></div>
+
+<p>Давайте построим алгоритм на русском языке: Берём единицу - это x^0, заметем умножаем её на x - это x^1, затем ещё раз умножаем на x - это x^2, и так далее пока результат не превысит 1000. Теперь запишем алгоритм на языке JavaScript:</p>
+
+<!-- prettier-ignore -->
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// в этой переменной будет храниться результат - степень x</span>
+
+<span class="c1">// пока условие в скобках верно (result &lt; 1000) - цикл продолжает исполняться.</span>
+<span class="c1">// Как только result превысит 1000 - цикл сразу прервётся.</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">result</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// на каждом шагу выводим результат</span>
+  <span class="nx">result</span> <span class="o">*=</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">// на каждом шагу умножаем результат на x, повышая степень</span>
+<span class="p">}</span>
+
+<span class="dl">''</span><span class="p">;</span>
 </code></pre></div></div>
 
 <hr />
@@ -177,12 +196,31 @@ x = 2
 
 <p><br /><br /></p>
 
-<p>Чтобы получить целую часть числа с точкой (десятичной дроби) воспользуйтесь функцией Math.floor:</p>
+<p>Теперь давайте решим такую задачу: выведете количество разрядов числа x. Количество разрядов - это количество цифр в числе. То есть в числе 256 - 3 разряда. Количество разрядов можно узнать с помощью деления на 10. Итак, вот шаги алгоритма на примере числа 256:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mf">34.245</span><span class="p">));</span> <span class="c1">// выведет 34</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 шаг
+x (число) = 256
+r (количество разрядов) = 1
+
+2 шаг: делим x на 10 без остатка и увеличиваем r на 1
+x = 25
+r = 2
+
+3 шаг: делим x на 10 без остатка и увеличиваем r на 1
+x = 2
+r = 3
+
+4 шаг: x &lt; 10, поэтому на этом шаге останавливаемся
+
+Количество разрядов равно 3
 </code></pre></div></div>
 
-<p>Все следующие задачи решаются с помощью цикла, оператора остатка от деления (%) и функции Math.floor.</p>
+<p>Чтобы получить целую часть числа с точкой (десятичной дроби) воспользуйтесь функцией Math.floor:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="mi">256</span> <span class="o">/</span> <span class="mi">10</span><span class="p">));</span> <span class="c1">// выведет 25</span>
+</code></pre></div></div>
+
+<p>Теперь напишите алгоритм для этой задачи:</p>
 
 <hr />
 
@@ -199,9 +237,15 @@ x = 2
 
 <hr />
 
+<p><br /><br /></p>
+
+<p>Возьмём то же число 256. Что нужно сделать, чтобы разделить это число на разряды? Последний разряд - это остаток от деления 256 на 10 - то есть 6. Предпоследний разряд - это остаток от деления 25 на 10 - то есть 5. И первый - это 2.</p>
+
+<hr />
+
 <p><em><strong>Задание 6-6</strong></em></p>
 
-<p>Поделите число x на разряды и выведете каждый разряд в отдельно строке таким образом:</p>
+<p>Поделите число x на разряды и выведете каждый разряд в отдельно строке таким образом (с последнего до первого):</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 10819
 
