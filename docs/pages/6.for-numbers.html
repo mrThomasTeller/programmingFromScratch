@@ -122,19 +122,19 @@
 
 1 шаг: нулевая степень любого числа - это 1
 r (степень числа) = 1
-Выводим 1
+Выводим r=1
 
 2 шаг: Умножаем r на x, тогда r = 1*x = x^1
 r = 2
-Выводим 2
+Выводим r=2
 
 3 шаг: Умножаем r на x, тогда r = 1*x*x = x^2
 r = 4
-Выводим 4
+Выводим r=4
 
 4 шаг: Умножаем r на x, тогда r = 1*x*x*x = x^3
 r = 8
-Выводим 8
+Выводим r=8
 </code></pre></div></div>
 
 <p>Теперь запишем алгоритм на JavaScript</p>
@@ -147,7 +147,7 @@ r = 8
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span>
 
 <span class="c1">// делаем ещё n - 1 шагов</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">r</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">*</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">// умножаем r на x на каждом шаге</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span> <span class="c1">// выводим степень x на каждом шаге</span>
 <span class="p">}</span>
