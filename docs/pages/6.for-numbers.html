@@ -107,8 +107,6 @@
   </tbody>
 </table>
 
-<hr />
-
 <p>То есть предыдущий пример будет выглядеть так:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -116,11 +114,17 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 11</span>
 </code></pre></div></div>
 
+<hr />
+
 <p><em><strong>Задание 6-1</strong></em></p>
 
-<p>Выведите n первых степеней числа x. То есть x^0, x^1, x^2, x^3, … и так n раз. Используйте только один цикл. <em>Не</em> используйте функции возведения в степень Math.pow и **.</p>
+<p>Выведите n первых степеней числа x. То есть x^0, x^1, x^2, x^3, … и так n раз. Сделайте это в цикле таким образом:</p>
 
-<p>Подсказка: вам понадобится оператор <code class="highlighter-rouge">*=</code>.</p>
+<p>1 шаг: result = 1 (нулевая степень числа x)
+2 шаг: result = result * x (вторая степень числа x)
+3 шаг: result = result * x (третья степень числа x)
+…
+И так n раз</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n = 4
 x = 2
