@@ -110,8 +110,11 @@
 <p>То есть предыдущий пример будет выглядеть так:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 1</span>
 <span class="nx">a</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 11</span>
+<span class="nx">a</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// выведет 21</span>
 </code></pre></div></div>
 
 <p>Решим такую задачу: Выведите n первых степеней числа x. То есть x^0, x^1, x^2, x^3, … и так n раз. Вспомним, что число x в степени y - это число умноженное на себя y раз.</p>
