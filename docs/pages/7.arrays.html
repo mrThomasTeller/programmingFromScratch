@@ -343,6 +343,14 @@ max = 9
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span> <span class="c1">// выведет false</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span> <span class="c1">// выведет 2 - индекс элемента со значением 3</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span> <span class="c1">// выведет -1 так как такого элемента нет в массиве</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// выполнится только если в массиве a есть 2</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">a</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// выполнится только если в массиве a нет -1</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <hr />
