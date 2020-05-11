@@ -10,6 +10,7 @@
     "start": "bundle exec jekyll serve"
   },
   "dependencies": {
-    "@types/node": "^13.11.1"
+    "@types/node": "^13.11.1",
+    "readline-sync": "^1.4.10"
   }
 }

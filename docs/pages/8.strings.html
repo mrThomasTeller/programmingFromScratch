@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Строки | Программирование с нуля</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Строки" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="http://localhost:4000/programming0/pages/8.strings.html" />
+<meta property="og:url" content="http://localhost:4000/programming0/pages/8.strings.html" />
+<meta property="og:site_name" content="Программирование с нуля" />
+<script type="application/ld+json">
+{"headline":"Строки","url":"http://localhost:4000/programming0/pages/8.strings.html","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/programming0/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/programming0/feed.xml" title="Программирование с нуля" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/programming0/">Программирование с нуля</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+
+        <select onchange="location.href = this.value" style="width: 200px;">
+          <option hidden selected>8. Строки</option><option value="/programming0/pages/0.prepare.html">0. Подготовка к курсу</option><option value="/programming0/pages/1.first-program.html">1. Первая программа</option><option value="/programming0/pages/2.for.html">2. Циклы (for)</option><option value="/programming0/pages/3.vars.html">3. Переменные</option><option value="/programming0/pages/4.a.if.html">4.a. Ветвления (if)</option><option value="/programming0/pages/4.b.format.html">4.b. Форматирование кода</option><option value="/programming0/pages/5.a.if-for.html">5.a. Совмещаем ветвления и циклы (if и for)</option><option value="/programming0/pages/5.b.if-for.html">5.b. Совмещаем ветвления и циклы (if и for)</option><option value="/programming0/pages/6.for-numbers.html">6. Операции с числами в цикле</option><option value="/programming0/pages/7.arrays.html">7. Массивы</option><option value="/programming0/pages/8.strings.html">8. Строки</option></select>
+
+        <input id="search-input" placeholder="Поиск по сайту" />
+        <button id="search-button">🔎</button>
+
+      </nav></div>
+  <script>
+(function(){
+    function search(){
+      var value = document.getElementById('search-input').value;
+      location.href = "https://github.com/mrThomasTeller/programming0/search?l=Markdown&q=" + encodeURIComponent(value);
+    }
+    document.getElementById('search-button').addEventListener('click', search);
+    document.getElementById('search-input').addEventListener('keypress', function(e){
+      if (e.key === 'Enter') search();
+    });
+})();
+  </script>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">8. Строки</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Установите библиотеку <code class="highlighter-rouge">readline-sync</code> для того чтобы ваша программа могла запрашивать данные у пользователя во время работы. Для этого в терминале выполните:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i readline-sync <span class="nt">--save</span>
+</code></pre></div></div>
+
+<p>Теперь эту библиотеку можно использовать в вашей программе:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Как тебя зовут?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Привет, </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Вывод</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Как тебя зовут?
+&gt; Артём
+Привет, Артём!
+</code></pre></div></div>
+
+<p>Что можно делать со строками?</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Text here</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span> <span class="c1">// выведет символ 'x'</span>
+<span class="kd">let</span> <span class="nx">sym</span> <span class="o">=</span> <span class="nx">str</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> <span class="c1">// теперь sym = 'h'. sym - это тоже строка</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// длина строки - 9 символов</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span> <span class="c1">// Возвращает часть строки с 0-го по 4-й символ. Выведет "Текст"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> <span class="c1">// Возвращает часть строки с 5-го по последний символ. Выведет "here"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// индекс буквы "e". Выведет 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">here</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// индекс слова "here" в строке. Выведет 5</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// Восклицательного знака в строке нет, поэтому выведет -1</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="dl">"</span><span class="s2">here</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">there</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// Заменяет первое вхождение строки "here" на "there". Выведет "Text there"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">());</span> <span class="c1">// делает все буквы "маленькими" (в нижнем регистре). Выведет "text here" (t - маленькая)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span> <span class="c1">// делает все буквы "большими" (в верхнем регистре). Выведет "TEXT HERE"</span>
+
+<span class="c1">// Метод split делит строку по заданному разделителю и превращает в массив строк.</span>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span> <span class="c1">// arr будет ["Text", "here"]</span>
+<span class="kd">let</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">один, два, три</span><span class="dl">"</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">, </span><span class="dl">"</span><span class="p">);</span> <span class="c1">// arr2 будет ["один", "два", "три"]</span>
+
+<span class="c1">// А у массива есть метод join, который соединяет его элементы в строку через заданный разделитель</span>
+<span class="kd">let</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">reg</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">green</span><span class="dl">"</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colors</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// выведет "reg-blue-green"</span>
+
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Один </span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Два</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">// c теперь равно "Один Два"</span>
+<span class="err">с</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// c теперь равно "Один Два!"</span>
+
+<span class="c1">// можно преобразовать строку в число</span>
+<span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">567</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// это строка</span>
+<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="c1">// это число 567</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// выведет 568</span>
+
+<span class="c1">// можно число преобразовать в строку</span>
+<span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">// m - это строка "10"</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Пример 1</strong></em></p>
+
+<p>Спросите у пользователя телефонный номер и выведете его в нормализованном виде. На вход может прийти номер в формате:</p>
+
+<ul>
+  <li>+79235050505</li>
+  <li>89235050505</li>
+  <li>8 923 5050505</li>
+  <li>7(923) 5050-505</li>
+</ul>
+
+<p>И с любым сочетанием пробелов, скобок и тире.</p>
+
+<p>Программа должна вывести номер в формате: <code class="highlighter-rouge">+79235050505</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите телефонный номер
+<span class="o">&gt;</span> 8 <span class="o">(</span>923<span class="o">)</span> 5050505
++79235050505
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">phone</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Введите телефонный номер</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">phoneFormatted</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">digits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">4</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">6</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">7</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">8</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">9</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">phone</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">char</span> <span class="o">=</span> <span class="nx">phone</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">phoneFormatted</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">char</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">8</span><span class="dl">"</span> <span class="o">||</span> <span class="nx">char</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">7</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">phoneFormatted</span> <span class="o">+=</span> <span class="dl">"</span><span class="s2">+7</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">digits</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">char</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">phoneFormatted</span> <span class="o">+=</span> <span class="nx">char</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">phoneFormatted</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Пример 2</strong></em></p>
+
+<p>Пользователь вводит предложение. Переверните в нём задом наперёд каждое слово.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите предложение
+<span class="o">&gt;</span> Мороз и солнце - день чудесный
+зороМ и ецнлос - ьнед йынседуч
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Введите предложение</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">revWords</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">word</span> <span class="k">of</span> <span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">revWord</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">word</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">revWord</span> <span class="o">+=</span> <span class="nx">word</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nx">revWords</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">revWord</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">revStr</span> <span class="o">=</span> <span class="nx">revWords</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">revStr</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Пример 3</strong></em></p>
+
+<p>Пользователь вводит строку <code class="highlighter-rouge">str</code>, индекс начала куска строки <code class="highlighter-rouge">p</code> и длину <code class="highlighter-rouge">l</code>. Выведете эту строку, часть которой должна быть написана прописными (большими) буквами.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str
+<span class="o">&gt;</span> abcdef
+p
+<span class="o">&gt;</span> 1
+l
+<span class="o">&gt;</span> 2
+aBCdef
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">str</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">p</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">));</span>
+<span class="kd">let</span> <span class="nx">l</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">l</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">));</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span> <span class="o">+</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">p</span> <span class="o">+</span> <span class="nx">l</span><span class="p">).</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">p</span> <span class="o">+</span> <span class="nx">l</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Пример 4</strong></em></p>
+
+<p>Пользователь вводит строку. Нужно сформировать и вывести массив из всех чисел в этой строке.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
+<span class="o">&gt;</span> 12 Мор567оз и солнце78
+<span class="o">[</span> 12, 567, 78 <span class="o">]</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Введите строку</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">digits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">4</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">6</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">7</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">8</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">9</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">let</span> <span class="nx">curNum</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">char</span> <span class="o">=</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">digits</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">char</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">curNum</span> <span class="o">+=</span> <span class="nx">char</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">curNum</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nx">digits</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">char</span><span class="p">)</span> <span class="o">||</span> <span class="nx">i</span> <span class="o">===</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">numbers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">curNum</span><span class="p">));</span>
+    <span class="nx">curNum</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbers</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Пример 5</strong></em></p>
+
+<p>Зашифруйте строку шифром Цезаря.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите новый алфавит
+<span class="o">&gt;</span> абвгдеёжзийклмнопрстуфхцчшщъыьэюя
+<span class="o">&gt;</span> йцукенгшщзхъфывапролджэячсмитьбюё
+Введите строку
+<span class="o">&gt;</span> мороз и солнце день чудесный
+ыаращ з оафвян енвь чденовтх
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">alphabet</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">абвгдеёжзийклмнопрстуфхцчшщъыьэюя</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">newAlphabet</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span>
+  <span class="dl">"</span><span class="s2">Введите новый алфавит</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">alphabet</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span>
+<span class="p">);</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Введите строку</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">newStr</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">char</span> <span class="k">of</span> <span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">alphabet</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">char</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">newStr</span> <span class="o">+=</span> <span class="nx">char</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">newStr</span> <span class="o">+=</span> <span class="nx">newAlphabet</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newStr</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><br /><br /></p>
+
+<h2 id="домашние-задания">Домашние задания</h2>
+
+<hr />
+
+<p><em><strong>Задание 8.1</strong></em></p>
+
+<p>Спросите у пользователя 3 слова и выведете их через запятую</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Первое слово
+&gt; Один
+Второе слово
+&gt; два
+Третье слово
+&gt; три
+Один, два, три
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.2</strong></em></p>
+
+<p>Спросите n (количество слов), затем спросите по очереди эти слова, а затем выведете их через запятую.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Сколько слов?
+&gt; 4
+1 слово
+&gt; red
+2 слово
+&gt; green
+3 слово
+&gt; blue
+4 слово
+&gt; white
+red, green, blue, white
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.3</strong></em></p>
+
+<p>Подсчитайте количество строчных и прописных букв в строке. Считается, что в строке могут быть только русские буквы и пробелы.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
+<span class="o">&gt;</span> Мороз И Солнце День Чудесный
+Прописных 4
+Строчных 18
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.4</strong></em></p>
+
+<p>Выведете самое длинное слово в предложении (предложение разбито пробелами).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
+<span class="o">&gt;</span> Мороз и солнце день чудесный
+чудесный
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.5</strong></em></p>
+
+<p>Пользователь вводит строку <code class="highlighter-rouge">str</code>, индекс начала куска строки <code class="highlighter-rouge">p</code> и длину <code class="highlighter-rouge">l</code>. Выведете эту строку, вырезав из неё кусок длинной <code class="highlighter-rouge">l</code> начиная с индекса <code class="highlighter-rouge">p</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str
+<span class="o">&gt;</span> abcdef
+p
+<span class="o">&gt;</span> 1
+l
+<span class="o">&gt;</span> 2
+adef
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.6</strong></em></p>
+
+<p>Пользователь вводит слово. Если оно является перевёртышем выведете true иначе false. Слово-перевёртыш - это слово, которое одинаково читается с начала и с конца.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите слово
+<span class="o">&gt;</span> комок
+<span class="nb">true</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите слово
+<span class="o">&gt;</span> яхта
+<span class="nb">false</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.7</strong></em></p>
+
+<p>Удалите лишние пробелы из строки. Пробелы лишние если они в начале или в конце строки, а также если между словами больше одного пробела. Считается, что строка состоит только из букв и пробелов.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
+<span class="o">&gt;</span>     Мороз     и солнце  день чудесный
+<span class="s2">"Мороз и солнце день чудесный"</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.8</strong></em></p>
+
+<p>Дана строка, сделайте букву каждого слова прописной (большой).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
+<span class="o">&gt;</span> Мороз и солнце день чудесный
+Мороз И Солнце День Чудесный
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.9</strong></em></p>
+
+<p>На вход подаётся строка вида “12+23=35”. Выведете на экран true если выражение верно или false если выражение не верно.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите выражение
+<span class="o">&gt;</span> 12+23<span class="o">=</span>35
+<span class="nb">true</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите выражение
+<span class="o">&gt;</span> 20/10<span class="o">=</span>9
+<span class="nb">false</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 8.10</strong></em></p>
+
+<p>На вход подаётся строка вида “12+23-4*5/10+11”. Выведете на экран результат выражения. Приоритет знаков не имеет значения.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите выражение
+<span class="o">&gt;</span> 12-10<span class="k">*</span>2
+4
+</code></pre></div></div>
+
+<hr />
+
+  </div>
+</article>
+
+      </div>
+    </main></body>
+
+</html>
