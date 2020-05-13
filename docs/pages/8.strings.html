@@ -66,16 +66,18 @@
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Как тебя зовут?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Привет, </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">What is your name?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hi, </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>Вывод</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Как тебя зовут?
-&gt; Артём
-Привет, Артём!
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>What is your name?
+&gt; Thomas
+Hi, Thomas!
 </code></pre></div></div>
+
+<p>К сожалению, в Windows вы не сможете использовать русские буквы вместе с этой библиотекой поэтому используйте только английские символы.</p>
 
 <p>Что можно делать со строками?</p>
 
@@ -138,14 +140,14 @@
 
 <p>Программа должна вывести номер в формате: <code class="highlighter-rouge">+79235050505</code></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите телефонный номер
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Phone number?
 <span class="o">&gt;</span> 8 <span class="o">(</span>923<span class="o">)</span> 5050505
 +79235050505
 </code></pre></div></div>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">phone</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Введите номер</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">phone</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Phone number?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">phoneFormatted</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">digits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">4</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">6</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">7</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">8</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">9</span><span class="dl">"</span><span class="p">];</span>
 
@@ -170,14 +172,14 @@
 
 <p>Пользователь вводит предложение. Переверните в нём задом наперёд каждое слово.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите предложение
-<span class="o">&gt;</span> Мороз и солнце - день чудесный
-зороМ и ецнлос - ьнед йынседуч
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+<span class="o">&gt;</span> One two three
+enO owt eerht
 </code></pre></div></div>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Введите предложение</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">str?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">revWords</span> <span class="o">=</span> <span class="p">[];</span>
 
@@ -225,14 +227,14 @@ aBCdef
 
 <p>Пользователь вводит строку. Нужно сформировать и вывести массив из всех чисел в этой строке.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
-<span class="o">&gt;</span> 12 Мор567оз и солнце78
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+<span class="o">&gt;</span> 12 One567two and three78
 <span class="o">[</span> 12, 567, 78 <span class="o">]</span>
 </code></pre></div></div>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Введите строку</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">str?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">digits</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">4</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">5</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">6</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">7</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">8</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">9</span><span class="dl">"</span><span class="p">];</span>
 <span class="kd">let</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[];</span>
 <span class="kd">let</span> <span class="nx">curNum</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
@@ -257,21 +259,21 @@ aBCdef
 
 <p>Зашифруйте строку шифром Цезаря.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите новый алфавит
-<span class="o">&gt;</span> абвгдеёжзийклмнопрстуфхцчшщъыьэюя
-<span class="o">&gt;</span> йцукенгшщзхъфывапролджэячсмитьбюё
-Введите строку
-<span class="o">&gt;</span> мороз и солнце день чудесный
-ыаращ з оафвян енвь чденовтх
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New alphabet?
+<span class="o">&gt;</span> abcdefghijklmnopqrstuvwxyz
+<span class="o">&gt;</span> qwertyuioplkjhgfdsazxcvbnm
+str?
+<span class="o">&gt;</span> one two three
+ght zvg zistt
 </code></pre></div></div>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">alphabet</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">абвгдеёжзийклмнопрстуфхцчшщъыьэюя</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">alphabet</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">abcdefghijklmnopqrstuvwxyz</span><span class="dl">"</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">newAlphabet</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span>
-  <span class="dl">"</span><span class="s2">Введите новый алфавит</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">alphabet</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span>
+  <span class="dl">"</span><span class="s2">New alphabet?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">alphabet</span> <span class="o">+</span> <span class="dl">"</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span>
 <span class="p">);</span>
-<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">Введите строку</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">str?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">newStr</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">char</span> <span class="k">of</span> <span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
@@ -298,13 +300,13 @@ aBCdef
 
 <p>Спросите у пользователя 3 слова и выведете их через запятую</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Первое слово
-&gt; Один
-Второе слово
-&gt; два
-Третье слово
-&gt; три
-Один, два, три
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 word?
+&gt; one
+2 word?
+&gt; two
+3 word?
+&gt; three
+one, two, three
 </code></pre></div></div>
 
 <hr />
@@ -313,15 +315,15 @@ aBCdef
 
 <p>Спросите n (количество слов), затем спросите по очереди эти слова, а затем выведете их через запятую.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Сколько слов?
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Words count (n)?
 &gt; 4
-1 слово
+1 word?
 &gt; red
-2 слово
+2 word?
 &gt; green
-3 слово
+3 word?
 &gt; blue
-4 слово
+4 word?
 &gt; white
 red, green, blue, white
 </code></pre></div></div>
@@ -330,23 +332,23 @@ red, green, blue, white
 
 <p><em><strong>Задание 8.3</strong></em></p>
 
-<p>Подсчитайте количество строчных и прописных букв в строке. Считается, что в строке могут быть только русские буквы и пробелы.</p>
+<p>Подсчитайте количество строчных и прописных букв в строке. Считается, что в строке могут быть только английские буквы и пробелы.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
-<span class="o">&gt;</span> Мороз И Солнце День Чудесный
-Прописных 4
-Строчных 18
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+<span class="o">&gt;</span> One Two Three
+Big 3
+Small 8
 </code></pre></div></div>
 
 <hr />
 
 <p><em><strong>Задание 8.4</strong></em></p>
 
-<p>Выведете самое длинное слово в предложении (предложение разбито пробелами).</p>
+<p>Выведете самое длинное слово в предложении (слова разбиты пробелами).</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
-<span class="o">&gt;</span> Мороз и солнце день чудесный
-чудесный
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+<span class="o">&gt;</span> One two three
+three
 </code></pre></div></div>
 
 <hr />
@@ -370,13 +372,13 @@ adef
 
 <p>Пользователь вводит слово. Если оно является перевёртышем выведете true иначе false. Слово-перевёртыш - это слово, которое одинаково читается с начала и с конца.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите слово
-<span class="o">&gt;</span> комок
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>word?
+<span class="o">&gt;</span> madam
 <span class="nb">true</span>
 </code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите слово
-<span class="o">&gt;</span> яхта
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>word?
+<span class="o">&gt;</span> one
 <span class="nb">false</span>
 </code></pre></div></div>
 
@@ -386,9 +388,9 @@ adef
 
 <p>Удалите лишние пробелы из строки. Пробелы лишние если они в начале или в конце строки, а также если между словами больше одного пробела. Считается, что строка состоит только из букв и пробелов.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
-<span class="o">&gt;</span>     Мороз     и солнце  день чудесный
-<span class="s2">"Мороз и солнце день чудесный"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+<span class="o">&gt;</span>     One     two  and three
+<span class="s2">"One two and three"</span>
 </code></pre></div></div>
 
 <hr />
@@ -397,9 +399,9 @@ adef
 
 <p>Дана строка, сделайте букву каждого слова прописной (большой).</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите строку
-<span class="o">&gt;</span> Мороз и солнце день чудесный
-Мороз И Солнце День Чудесный
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+<span class="o">&gt;</span> One two and three
+One Two And Three
 </code></pre></div></div>
 
 <hr />
@@ -408,12 +410,12 @@ adef
 
 <p>На вход подаётся строка вида “12+23=35”. Выведете на экран true если выражение верно или false если выражение не верно.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите выражение
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
 <span class="o">&gt;</span> 12+23<span class="o">=</span>35
 <span class="nb">true</span>
 </code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите выражение
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
 <span class="o">&gt;</span> 20/10<span class="o">=</span>9
 <span class="nb">false</span>
 </code></pre></div></div>
@@ -424,7 +426,7 @@ adef
 
 <p>На вход подаётся строка вида “12+23-4*5/10+11”. Выведете на экран результат выражения. Приоритет знаков не имеет значения.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Введите выражение
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
 <span class="o">&gt;</span> 12-10<span class="k">*</span>2
 4
 </code></pre></div></div>
