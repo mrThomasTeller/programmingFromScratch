@@ -30,7 +30,7 @@
 
 
         <select onchange="location.href = this.value" style="width: 200px;">
-          <option hidden selected>8. Строки</option><option value="/programming0/pages/0.prepare.html">0. Подготовка к курсу</option><option value="/programming0/pages/1.first-program.html">1. Первая программа</option><option value="/programming0/pages/2.for.html">2. Циклы (for)</option><option value="/programming0/pages/3.vars.html">3. Переменные</option><option value="/programming0/pages/4.a.if.html">4.a. Ветвления (if)</option><option value="/programming0/pages/4.b.format.html">4.b. Форматирование кода</option><option value="/programming0/pages/5.a.if-for.html">5.a. Совмещаем ветвления и циклы (if и for)</option><option value="/programming0/pages/5.b.if-for.html">5.b. Совмещаем ветвления и циклы (if и for)</option><option value="/programming0/pages/6.for-numbers.html">6. Операции с числами в цикле</option><option value="/programming0/pages/7.arrays.html">7. Массивы</option><option value="/programming0/pages/8.strings.html">8. Строки</option></select>
+          <option hidden selected>8. Строки</option><option value="/programming0/pages/0.prepare.html">0. Подготовка к курсу</option><option value="/programming0/pages/1.first-program.html">1. Первая программа</option><option value="/programming0/pages/2.for.html">2. Циклы (for)</option><option value="/programming0/pages/3.vars.html">3. Переменные</option><option value="/programming0/pages/4.a.if.html">4.a. Ветвления (if)</option><option value="/programming0/pages/4.b.format.html">4.b. Форматирование кода</option><option value="/programming0/pages/5.a.if-for.html">5.a. Совмещаем ветвления и циклы (if и for)</option><option value="/programming0/pages/5.b.if-for.html">5.b. Совмещаем ветвления и циклы (if и for)</option><option value="/programming0/pages/6.for-numbers.html">6. Операции с числами в цикле</option><option value="/programming0/pages/7.arrays.html">7. Массивы</option><option value="/programming0/pages/8.strings.html">8. Строки</option><option value="/programming0/pages/9.files-objects.html">9. Работа с объектами и файлами</option></select>
 
         <input id="search-input" placeholder="Поиск по сайту" />
         <button id="search-button">🔎</button>
@@ -59,7 +59,7 @@
   <div class="post-content">
     <p>Установите библиотеку <code class="highlighter-rouge">readline-sync</code> для того чтобы ваша программа могла запрашивать данные у пользователя во время работы. Для этого в терминале выполните:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i readline-sync <span class="nt">--save</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i readline-sync --save
 </code></pre></div></div>
 
 <p>Теперь эту библиотеку можно использовать в вашей программе:</p>
@@ -140,8 +140,8 @@ Hi, Thomas!
 
 <p>Программа должна вывести номер в формате: <code class="highlighter-rouge">+79235050505</code></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Phone number?
-<span class="o">&gt;</span> 8 <span class="o">(</span>923<span class="o">)</span> 5050505
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Phone number?
+&gt; 8 (923) 5050505
 +79235050505
 </code></pre></div></div>
 
@@ -172,8 +172,8 @@ Hi, Thomas!
 
 <p>Пользователь вводит предложение. Переверните в нём задом наперёд каждое слово.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span> One two three
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt; One two three
 enO owt eerht
 </code></pre></div></div>
 
@@ -201,12 +201,12 @@ enO owt eerht
 
 <p>Пользователь вводит строку <code class="highlighter-rouge">str</code>, индекс начала куска строки <code class="highlighter-rouge">p</code> и длину <code class="highlighter-rouge">l</code>. Выведете эту строку, часть которой должна быть написана прописными (большими) буквами.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str
-<span class="o">&gt;</span> abcdef
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str
+&gt; abcdef
 p
-<span class="o">&gt;</span> 1
+&gt; 1
 l
-<span class="o">&gt;</span> 2
+&gt; 2
 aBCdef
 </code></pre></div></div>
 
@@ -227,9 +227,9 @@ aBCdef
 
 <p>Пользователь вводит строку. Нужно сформировать и вывести массив из всех чисел в этой строке.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span> 12 One567two and three78
-<span class="o">[</span> 12, 567, 78 <span class="o">]</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt; 12 One567two and three78
+[ 12, 567, 78 ]
 </code></pre></div></div>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
@@ -259,11 +259,11 @@ aBCdef
 
 <p>Зашифруйте строку шифром Цезаря.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New alphabet?
-<span class="o">&gt;</span> abcdefghijklmnopqrstuvwxyz
-<span class="o">&gt;</span> qwertyuioplkjhgfdsazxcvbnm
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New alphabet?
+&gt; abcdefghijklmnopqrstuvwxyz
+&gt; qwertyuioplkjhgfdsazxcvbnm
 str?
-<span class="o">&gt;</span> one two three
+&gt; one two three
 ght zvg zistt
 </code></pre></div></div>
 
@@ -334,8 +334,8 @@ red, green, blue, white
 
 <p>Подсчитайте количество строчных и прописных букв в строке. Считается, что в строке могут быть только английские буквы и пробелы.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span> One Two Three
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt; One Two Three
 Big 3
 Small 8
 </code></pre></div></div>
@@ -346,8 +346,8 @@ Small 8
 
 <p>Выведете самое длинное слово в предложении (слова разбиты пробелами).</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span> One two three
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt; One two three
 three
 </code></pre></div></div>
 
@@ -357,12 +357,12 @@ three
 
 <p>Пользователь вводит строку <code class="highlighter-rouge">str</code>, индекс начала куска строки <code class="highlighter-rouge">p</code> и длину <code class="highlighter-rouge">l</code>. Выведете эту строку, вырезав из неё кусок длинной <code class="highlighter-rouge">l</code> начиная с индекса <code class="highlighter-rouge">p</code>.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str
-<span class="o">&gt;</span> abcdef
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str
+&gt; abcdef
 p
-<span class="o">&gt;</span> 1
+&gt; 1
 l
-<span class="o">&gt;</span> 2
+&gt; 2
 adef
 </code></pre></div></div>
 
@@ -372,14 +372,14 @@ adef
 
 <p>Пользователь вводит слово. Если оно является перевёртышем выведете true иначе false. Слово-перевёртыш - это слово, которое одинаково читается с начала и с конца.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>word?
-<span class="o">&gt;</span> madam
-<span class="nb">true</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>word?
+&gt; madam
+true
 </code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>word?
-<span class="o">&gt;</span> one
-<span class="nb">false</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>word?
+&gt; one
+false
 </code></pre></div></div>
 
 <hr />
@@ -388,9 +388,9 @@ adef
 
 <p>Удалите лишние пробелы из строки. Пробелы лишние если они в начале или в конце строки, а также если между словами больше одного пробела. Считается, что строка состоит только из букв и пробелов.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span>     One     two  and three
-<span class="s2">"One two and three"</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt;     One     two  and three
+"One two and three"
 </code></pre></div></div>
 
 <hr />
@@ -399,8 +399,8 @@ adef
 
 <p>Дана строка, сделайте букву каждого слова прописной (большой).</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span> One two and three
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt; One two and three
 One Two And Three
 </code></pre></div></div>
 
@@ -410,14 +410,14 @@ One Two And Three
 
 <p>На вход подаётся строка вида “12+23=35”. Выведете на экран true если выражение верно или false если выражение не верно.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span> 12+23<span class="o">=</span>35
-<span class="nb">true</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt; 12+23=35
+true
 </code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span> 20/10<span class="o">=</span>9
-<span class="nb">false</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt; 20/10=9
+false
 </code></pre></div></div>
 
 <hr />
@@ -426,8 +426,8 @@ One Two And Three
 
 <p>На вход подаётся строка вида “12+23-4*5/10+11”. Выведете на экран результат выражения. Приоритет знаков не имеет значения.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
-<span class="o">&gt;</span> 12-10<span class="k">*</span>2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str?
+&gt; 12-10*2
 4
 </code></pre></div></div>
 

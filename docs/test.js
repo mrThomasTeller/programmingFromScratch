@@ -1,19 +1,17 @@
 const readlineSync = require("readline-sync");
 
 let alphabet = "abcdefghijklmnopqrstuvwxyz";
-let newAlphabet = readlineSync.question(
-  "New alphabet?\n> " + alphabet + "\n> "
-);
+let alphabetNew = readlineSync.question("alphabet?\n> " + alphabet + "\n> ");
 let str = readlineSync.question("str?\n> ");
-let newStr = "";
+let strNew = "";
 
 for (let char of str) {
   let index = alphabet.indexOf(char);
-  if (index === -1) {
-    newStr += char;
+  if (index !== -1) {
+    strNew += alphabetNew[index];
   } else {
-    newStr += newAlphabet[index];
+    strNew += char;
   }
 }
 
-console.log(newStr);
+console.log(strNew);
