@@ -132,17 +132,78 @@
 
 <p>Создать и сохранить в файл список книг</p>
 
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">books</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Букварь</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">year</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+    <span class="na">read</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Колобок</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">year</span><span class="p">:</span> <span class="mi">1921</span><span class="p">,</span>
+    <span class="na">read</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Идиот</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">year</span><span class="p">:</span> <span class="mi">1856</span><span class="p">,</span>
+    <span class="na">read</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100 лет одиночества</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">year</span><span class="p">:</span> <span class="mi">1920</span><span class="p">,</span>
+    <span class="na">read</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">books</span><span class="p">));</span>
+</code></pre></div></div>
+
 <hr />
 
 <p><em><strong>Задание в классе 2</strong></em></p>
 
 <p>Вывести список книг</p>
 
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">));</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">book</span> <span class="k">of</span> <span class="nx">books</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">readStr</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">read</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">readStr</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">прочитано</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">readStr</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">не прочитано</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">; </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">book</span><span class="p">.</span><span class="nx">year</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> (</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">readStr</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">)</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
 <hr />
 
 <p><em><strong>Задание в классе 3</strong></em></p>
 
 <p>Прочитать список книг, пометить первую непрочитанную книгу как прочитанную, записать его обратно</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">));</span>
+<span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">books</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">books</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">read</span> <span class="o">===</span> <span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="nx">index</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">index</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">books</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">read</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">books</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <hr />
 
@@ -155,6 +216,37 @@
   <li>Добавить новую</li>
   <li>Записать его обратно</li>
 </ol>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">nameStr</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">name?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">year</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">year?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">));</span>
+<span class="kd">let</span> <span class="nx">newBook</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">nameStr</span><span class="p">,</span>
+  <span class="na">year</span><span class="p">:</span> <span class="nx">year</span><span class="p">,</span>
+  <span class="na">read</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">));</span>
+<span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">minYear</span> <span class="o">=</span> <span class="kc">Infinity</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">books</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">books</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">year</span> <span class="o">&lt;</span> <span class="nx">minYear</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">minYear</span> <span class="o">=</span> <span class="nx">books</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">year</span><span class="p">;</span>
+    <span class="nx">index</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">books</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">books</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">newBook</span><span class="p">);</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">books</span><span class="p">));</span>
+</code></pre></div></div>
 
 <hr />
 
