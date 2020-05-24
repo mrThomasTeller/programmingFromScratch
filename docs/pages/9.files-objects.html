@@ -338,13 +338,13 @@ done!
 <p>Программа должна:</p>
 
 <ol>
-  <li>Спросить пользователя порядковый номер дела, которое нужно пометить как выполненное</li>
+  <li>Спросить пользователя порядковый номер дела, которое нужно пометить как выполненное/невыполненное</li>
   <li>Прочитать список дел из файла <code class="highlighter-rouge">todos.json</code></li>
   <li>Если есть дело с таким номером то:
     <ol>
-      <li>изменить флаг <code class="highlighter-rouge">completed</code> дела на противоположный (с <code class="highlighter-rouge">false</code> на <code class="highlighter-rouge">true</code> и наоборот)</li>
+      <li>изменить флаг <code class="highlighter-rouge">completed</code> дела на противоположный (с <code class="highlighter-rouge">false</code> на <code class="highlighter-rouge">true</code> или наоборот с <code class="highlighter-rouge">true</code> на <code class="highlighter-rouge">false</code>)</li>
       <li>Записать изменённый список обратно в файл <code class="highlighter-rouge">todos.json</code></li>
-      <li>Вывести дело в формате “[x] 1. feed cat”</li>
+      <li>Вывести дело в формате “[x] 1. feed cat” или “[ ] 1. feed cat”</li>
     </ol>
   </li>
   <li>Если такого дела нет, то вывести сообщение “wrong number” (неправильный номер)</li>
