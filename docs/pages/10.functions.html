@@ -57,7 +57,91 @@
   </header>
 
   <div class="post-content">
-    <h2 id="примеры">Примеры</h2>
+    <h2 id="функции">Функции</h2>
+
+<p>Функция - это “кусок” кода, у которого есть имя. Функция может принимать любое количество параметров и может возвращать результат. После того как вы объявили функцию её можно вызывать из любого места в вашем коде.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// функция называется sum. Принимает параметры a и b и возращает их сумму</span>
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// вот так мы вызываем функцию. a - это 1, b - это 2. Функция вернёт 3. Теперь s = 3.</span>
+<span class="kd">let</span> <span class="nx">s2</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span> <span class="c1">// а s2=30</span>
+
+<span class="c1">// а эта функция ничего не вернёт (в ней нет слова return), но она выведет на экран сумму a+b</span>
+<span class="kd">function</span> <span class="nx">printSum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">printSum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// выведет на экран 7</span>
+
+<span class="c1">// Из функции можно вызывать функции.</span>
+<span class="c1">// Эта функция также выведет на экран сумму a и b, однако для сложения она использует функцию sum.</span>
+<span class="kd">function</span> <span class="nx">printSum2</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// Внутри функции можно делать всё что угодно и она может быть любого размера.</span>
+<span class="c1">// Вот эта функция запишет в файл массив из первых десяти натуральных чисел</span>
+<span class="kd">function</span> <span class="nx">saveNumbersToFile</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">numbers.json</span><span class="dl">"</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">a</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// вызовем её</span>
+<span class="nx">saveNumbersToFile</span><span class="p">();</span>
+
+<span class="c1">// вот эта функция делает то же самое, но ей можно указать сколько чисел записать</span>
+<span class="c1">// и в какой файл</span>
+<span class="kd">function</span> <span class="nx">saveNumbersToFile2</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">a</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// вот так мы запишем 20 чисел в файл num.json</span>
+<span class="nx">saveNumbersToFile2</span><span class="p">(</span><span class="dl">"</span><span class="s2">num.json</span><span class="dl">"</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="бесконечный-цикл">Бесконечный цикл</h2>
+
+<p>Цикл может выполняться бесконечно (делать бесконечное количество шагов):</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Вы увидете бесконечное количество этих строк на экране</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Однако цикл можно прервать в любой момент с помощью команды <code class="highlighter-rouge">break</code>. Например, мы можем просить пользователя решить математический пример пока он не даст правильный ответ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">7*6?</span><span class="se">\n</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">));</span>
+  <span class="c1">// если пользователь введёт 42, мы похвалим его и выйдем из цикла (перестанем спрашивать)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="mi">42</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Павильно!</span><span class="dl">"</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="проверка-наличия-файла">Проверка наличия файла</h2>
+
+<p>Чтобы проверить существует ли такой файл используйте функцию fs.existsSync</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">todos.json</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Файл todos.json существует!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Файла todos.json нет.</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="примеры">Примеры</h2>
 
 <hr />
 
