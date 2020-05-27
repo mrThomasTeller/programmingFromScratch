@@ -198,8 +198,8 @@
       <td>Добавляет книгу с годом <code class="highlighter-rouge">y</code> и названием <code class="highlighter-rouge">x</code>.</td>
     </tr>
     <tr>
-      <td>remove-old</td>
-      <td>Удаляет самую старую книгу.</td>
+      <td>remove-read</td>
+      <td>Удаляет уже прочитанные книги.</td>
     </tr>
     <tr>
       <td>exit</td>
@@ -209,6 +209,139 @@
 </table>
 
 <p>Если пользователь ввёл неверную команду, выведете “wrong command” (неверная команда).</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">readlineSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">readline-sync</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">init</span><span class="p">();</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// пользователь должен ввести команду</span>
+  <span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">readlineSync</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="dl">"</span><span class="s2">&gt; </span><span class="dl">"</span><span class="p">);</span>
+  <span class="c1">// делим строку, которую ввёл пользователь на слова</span>
+  <span class="kd">let</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">command</span> <span class="o">=</span> <span class="nx">words</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+  <span class="c1">// проверяем какую команду ввёл пользователь и вызываем соответствующую функцию</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">list</span><span class="p">(</span><span class="dl">"</span><span class="s2">all</span><span class="dl">"</span><span class="p">);</span>
+    <span class="c1">//</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">list-unread</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">list</span><span class="p">(</span><span class="dl">"</span><span class="s2">unread</span><span class="dl">"</span><span class="p">);</span>
+    <span class="c1">//</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">read</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="nx">read</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+    <span class="c1">//</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">add</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">year</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="kd">let</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">words</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">add</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">title</span><span class="p">);</span>
+    <span class="c1">//</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">remove-read</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">removeRead</span><span class="p">();</span>
+    <span class="c1">//</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">exit</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">break</span><span class="p">;</span>
+    <span class="c1">//</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">wrong command</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// читает список книг из файла и возвращает их в виде массива</span>
+<span class="kd">function</span> <span class="nx">loadBooks</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// сохраняет список книг в файл</span>
+<span class="kd">function</span> <span class="nx">saveBooks</span><span class="p">(</span><span class="nx">books</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">books</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// если файла books.json нет, то создаёт начальный список книг</span>
+<span class="kd">function</span> <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">books.json</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Букварь</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">year</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+        <span class="na">read</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Колобок</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">year</span><span class="p">:</span> <span class="mi">1921</span><span class="p">,</span>
+        <span class="na">read</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Идиот</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">year</span><span class="p">:</span> <span class="mi">1856</span><span class="p">,</span>
+        <span class="na">read</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100 лет одиночества</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">year</span><span class="p">:</span> <span class="mi">1920</span><span class="p">,</span>
+        <span class="na">read</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">];</span>
+
+    <span class="nx">saveBooks</span><span class="p">(</span><span class="nx">books</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// выводит на экран список книг</span>
+<span class="c1">// type = "all" | "unread"</span>
+<span class="kd">function</span> <span class="nx">list</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">loadBooks</span><span class="p">();</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">book</span> <span class="k">of</span> <span class="nx">books</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">all</span><span class="dl">"</span> <span class="o">||</span> <span class="p">(</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">unread</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">book</span><span class="p">.</span><span class="nx">read</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">readStr</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">unread</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">readStr</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">read</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">readStr</span> <span class="o">=</span> <span class="dl">"</span><span class="s2"> (прочитано)</span><span class="dl">"</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">readStr</span> <span class="o">=</span> <span class="dl">"</span><span class="s2"> (не прочитано)</span><span class="dl">"</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">; </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">book</span><span class="p">.</span><span class="nx">year</span> <span class="o">+</span> <span class="nx">readStr</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// помечает книгу с номером n как прочитанную</span>
+<span class="kd">function</span> <span class="nx">read</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">loadBooks</span><span class="p">();</span>
+  <span class="nx">books</span><span class="p">[</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">read</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">saveBooks</span><span class="p">(</span><span class="nx">books</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// добавляет книгу с годом year и именем title</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">title</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">newBook</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">title</span><span class="p">,</span>
+    <span class="na">year</span><span class="p">:</span> <span class="nx">year</span><span class="p">,</span>
+    <span class="na">read</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="p">};</span>
+
+  <span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">loadBooks</span><span class="p">();</span>
+  <span class="nx">books</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">newBook</span><span class="p">);</span>
+  <span class="nx">saveBooks</span><span class="p">(</span><span class="nx">books</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// удаляет прочитанные книги из списка</span>
+<span class="kd">function</span> <span class="nx">removeRead</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="nx">loadBooks</span><span class="p">();</span>
+  <span class="kd">let</span> <span class="nx">books2</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">book</span> <span class="k">of</span> <span class="nx">books</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">book</span><span class="p">.</span><span class="nx">read</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">books2</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">book</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nx">saveBooks</span><span class="p">(</span><span class="nx">books2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <hr />
 
