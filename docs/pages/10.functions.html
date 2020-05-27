@@ -66,10 +66,12 @@
   <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// вот так мы вызываем функцию. a - это 1, b - это 2. Функция вернёт 3. Теперь s = 3.</span>
+<span class="c1">// вот так мы вызываем функцию. a - это 1, b - это 2. Функция вернёт 3.</span>
+<span class="kd">let</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// Теперь s = 3.</span>
 <span class="kd">let</span> <span class="nx">s2</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span> <span class="c1">// а s2=30</span>
 
-<span class="c1">// а эта функция ничего не вернёт (в ней нет слова return), но она выведет на экран сумму a+b</span>
+<span class="c1">// а эта функция ничего не вернёт (в ней нет слова return),</span>
+<span class="c1">// но она выведет на экран сумму a+b</span>
 <span class="kd">function</span> <span class="nx">printSum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
 <span class="p">}</span>
@@ -77,7 +79,8 @@
 <span class="nx">printSum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// выведет на экран 7</span>
 
 <span class="c1">// Из функции можно вызывать функции.</span>
-<span class="c1">// Эта функция также выведет на экран сумму a и b, однако для сложения она использует функцию sum.</span>
+<span class="c1">// Эта функция также выведет на экран сумму a и b,</span>
+<span class="c1">// однако для сложения она использует функцию sum.</span>
 <span class="kd">function</span> <span class="nx">printSum2</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">));</span>
 <span class="p">}</span>
