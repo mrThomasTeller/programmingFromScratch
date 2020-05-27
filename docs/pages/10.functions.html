@@ -109,6 +109,30 @@
 <span class="nx">saveNumbersToFile2</span><span class="p">(</span><span class="dl">"</span><span class="s2">num.json</span><span class="dl">"</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </code></pre></div></div>
 
+<p><strong>Сигнатура функции</strong> - это описание её имени, параметров и возвращаемого результата. Выглядит она таким образом:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getBooksList</span><span class="p">(</span><span class="nx">year</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">author</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">object</span><span class="p">[]</span>
+</code></pre></div></div>
+
+<p>Здесь описана функция, которая называется <code class="highlighter-rouge">getBooksList</code> (получить список книг), имеет два параметра: <code class="highlighter-rouge">year</code> (год) - число и <code class="highlighter-rouge">author</code> (автор) - строка. Эта функция исходя из описания должна возвратить массив объектов - книг.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">removeBook</span><span class="p">(</span><span class="nx">index</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="k">void</span>
+</code></pre></div></div>
+
+<p>А вот функция <code class="highlighter-rouge">removeBook</code> ничего не возвращает. Это и логично, она удаляет книгу с индексом <code class="highlighter-rouge">index</code> и ничего и не должна вовращать.</p>
+
+<p>Вот краткий список типов, которые могут быть описаны в сигнатуре:</p>
+
+<ul>
+  <li><strong>number</strong> - числов</li>
+  <li><strong>string</strong> - строка</li>
+  <li><strong>boolean</strong> - булевый (true или false)</li>
+  <li><strong>object</strong> - объект</li>
+  <li><strong>void</strong> - ничего, ипользуется, чтобы показать, что функция ничего не возвращает</li>
+</ul>
+
+<p>Для обозначения массивов в коннце типа дописывается <code class="highlighter-rouge">[]</code>, то есть массив чисел это <code class="highlighter-rouge">number[]</code>, а массив строк - <code class="highlighter-rouge">string[]</code>.</p>
+
 <h2 id="бесконечный-цикл">Бесконечный цикл</h2>
 
 <p>Цикл может выполняться бесконечно (делать бесконечное количество шагов):</p>
@@ -171,7 +195,7 @@
     </tr>
     <tr>
       <td>add <code class="highlighter-rouge">y</code> <code class="highlighter-rouge">x</code></td>
-      <td>Добавляет книгу с годом <code class="highlighter-rouge">y</code> и названием <code class="highlighter-rouge">x</code></td>
+      <td>Добавляет книгу с годом <code class="highlighter-rouge">y</code> и названием <code class="highlighter-rouge">x</code>.</td>
     </tr>
     <tr>
       <td>remove-old</td>
