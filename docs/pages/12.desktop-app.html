@@ -137,6 +137,79 @@
 
 <hr />
 
+<h2 id="javascript">JavaScript</h2>
+
+<p>Прочитайте вот эти статьи:</p>
+
+<ul>
+  <li><a href="https://learn.javascript.ru/searching-elements-dom">https://learn.javascript.ru/searching-elements-dom</a></li>
+  <li><a href="https://learn.javascript.ru/modifying-document">https://learn.javascript.ru/modifying-document</a></li>
+  <li><a href="https://learn.javascript.ru/introduction-browser-events">https://learn.javascript.ru/introduction-browser-events</a></li>
+  <li><a href="https://learn.javascript.ru/form-elements">https://learn.javascript.ru/form-elements</a></li>
+  <li><a href="https://learn.javascript.ru/events-change-input">https://learn.javascript.ru/events-change-input</a></li>
+</ul>
+
+<hr />
+
+<p><em><strong>Задание 12.3</strong></em></p>
+
+<p>Заключительная часть раздела - придайте динамику форме. Вы можете посмотреть как примерно должно работать готовое приложение здесь: http://todomvc.com/examples/react/#/</p>
+
+<p>Вот некоторые функции, которые должны быть у вас в приложении:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Сигнатура</th>
+      <th>Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>init(): void</strong></td>
+      <td>Вызывает функцию <code class="highlighter-rouge">renderTodo</code>. Вешает обработчики событий на чекбокс <code class="highlighter-rouge">check-all</code>, поля ввода, фильтр “Все/Активные/Завершённые” и кнопку “Удалить завершённые”</td>
+    </tr>
+    <tr>
+      <td><strong>renderTodos(): void</strong></td>
+      <td>&lt;ul&gt;&lt;li&gt;Читает список дел из файла todos.json и отображает их в список в документе через <code class="highlighter-rouge">innerHTML</code> принимая во внимание введённую в поиск текст и состояние фильтра “Все/Активные/Завершённые”&lt;/li&gt;&lt;li&gt;Вешает обработчики событий на чекбоксы рядом с каждым делом, а также на кнопки удаления дел&lt;/li&gt;&lt;li&gt;Изменяет текст “… дел осталось” на актуальный.&lt;/li&gt;&lt;li&gt;Скрывает/показывает кнопку “Удалить завершённые” (через свойство <code class="highlighter-rouge">style.visibility</code>) в зависимости от того есть ли завершённые дела&lt;/li&gt;&lt;li&gt;Меняет состояние чекбокса <code class="highlighter-rouge">check-all</code>&lt;/li&gt;&lt;/ul&gt;</td>
+    </tr>
+    <tr>
+      <td><strong>toggleTodo</strong></td>
+      <td>Обработчик события change чекбокса completed рядом с каждым делом. Меняет свойство <code class="highlighter-rouge">completed</code> дела и вызывает функцию <code class="highlighter-rouge">renderTodos</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>removeTodo</strong></td>
+      <td>Обработчик события click кнопки удаления дела. Удаляет дело и вызывает функцию <code class="highlighter-rouge">renderTodos</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>searchTodos</strong></td>
+      <td>Обработчик события change поля ввода “Поиск”. Вызывает функцию <code class="highlighter-rouge">renderTodos</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>addTodo</strong></td>
+      <td>Обработчик события keypress поля ввода “Добавить дело”. Если был нажат Enter, то добавляет новое дело, очищает поле ввода и вызывает функцию <code class="highlighter-rouge">renderTodos</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>setTodosFilter</strong></td>
+      <td>Обработчик события change радиобаттонов фильтра “Все/Активные/Завершённые”. Вызывает функцию <code class="highlighter-rouge">renderTodos</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>clearTodos</strong></td>
+      <td>Обработчик события click кнопки “Удалить завершённые”. Удаляет завершённые дела и вызывает функцию <code class="highlighter-rouge">renderTodos</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Также обратите внимание на кнопку <code class="highlighter-rouge">check-all</code> (слева от поля “Добавить дело”). Он должен работать таким образом:</p>
+
+<ul>
+  <li>Если нет ни одного дела, то чекбокс неотмечен.</li>
+  <li>Если все дела завершены, то чекбокс отмечен. Клик по чекбоксу приведёт к тому что все дела станут незавершёнными.</li>
+  <li>Если есть незавершённые дела, то чекбокс неотмечен. Клик по чекбоксу приведёт к тому что все дела станут завершёнными.</li>
+</ul>
+
+<hr />
+
   </div>
 </article>
 
