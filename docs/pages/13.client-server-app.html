@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Клиент-серверное приложение | Программирование с нуля</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Клиент-серверное приложение" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Методичка" />
+<meta property="og:description" content="Методичка" />
+<link rel="canonical" href="http://localhost:4000/programming0/pages/13.client-server-app.html" />
+<meta property="og:url" content="http://localhost:4000/programming0/pages/13.client-server-app.html" />
+<meta property="og:site_name" content="Программирование с нуля" />
+<script type="application/ld+json">
+{"headline":"Клиент-серверное приложение","url":"http://localhost:4000/programming0/pages/13.client-server-app.html","description":"Методичка","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/programming0/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/programming0/feed.xml" title="Программирование с нуля" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/programming0/">Программирование с нуля</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+
+        <select onchange="location.href = this.value" style="width: 200px;">
+          <option hidden selected>13. Клиент-серверное приложение</option><option value="/programming0/pages/00.prepare.html">0. Подготовка к курсу</option><option value="/programming0/pages/01.first-program.html">1. Первая программа</option><option value="/programming0/pages/02.for.html">2. Циклы (for)</option><option value="/programming0/pages/03.html">3. Переменные</option><option value="/programming0/pages/04.a.if.html">4.a. Ветвления (if)</option><option value="/programming0/pages/04.b.format.html">4.b. Форматирование кода</option><option value="/programming0/pages/05.a.if-for.html">5.a. Совмещаем ветвления и циклы (if и for)</option><option value="/programming0/pages/05.b.if-for.html">5.b. Совмещаем ветвления и циклы (if и for)</option><option value="/programming0/pages/06.for-numbers.html">6. Операции с числами в цикле</option><option value="/programming0/pages/07.arrays.html">7. Массивы</option><option value="/programming0/pages/08.strings.html">8. Строки</option><option value="/programming0/pages/09.files-objects.html">9. Работа с объектами и файлами</option><option value="/programming0/pages/10.functions.html">10. Функции</option><option value="/programming0/pages/11.libraries.html">11. Библиотеки и регулярные выражения</option><option value="/programming0/pages/12.desktop-app.html">12. Electron - desktop-приложение</option><option value="/programming0/pages/13.client-server-app.html">13. Клиент-серверное приложение</option></select>
+
+        <input id="search-input" placeholder="Поиск по сайту" />
+        <button id="search-button">🔎</button>
+
+      </nav></div>
+  <script>
+(function(){
+    function search(){
+      var value = document.getElementById('search-input').value;
+      location.href = "https://github.com/mrThomasTeller/programming0/search?l=Markdown&q=" + encodeURIComponent(value);
+    }
+    document.getElementById('search-button').addEventListener('click', search);
+    document.getElementById('search-input').addEventListener('keypress', function(e){
+      if (e.key === 'Enter') search();
+    });
+})();
+  </script>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">13. Клиент-серверное приложение</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Теперь наше приложение разделено на сервер и клиент. Клиент - это то что исполняется в браузере пользователя: скрпиты, стили, разметка и т.д. Сервер - это то что исполняется на удалённой машине. Сервер обрабатывает входящие от клиента запросы и хранит данные.</p>
+
+<p>Создадим простенькое приложение каунтер: обычный счётчик с кнопками + и -. Если нажать на сам счётчик, то пусть он будет сбрасываться в 0. Также внизу счётчика будет текстовое поле и кнопка для изменения значения счётчика на произвольное:</p>
+
+<p><img src="img/CounterApp.png" /></p>
+
+<p>Пример реализации такого каунтера с подробными комментариями смотрите здесь https://github.com/mrThomasTeller/prog-from-scratch-counter. Также вы можете запустить его на своём компьютере, для этого скачайте эту папку к себе и запустите:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install
+node server.js
+</code></pre></div></div>
+
+<p>Затем откройте в браузере адрес “http://localhost:3000/”.</p>
+
+<h2 id="домашнее-задание">Домашнее задание</h2>
+
+<p>Сделайте клиент-серверное приложение “Список задач”.</p>
+
+<p>Сначала нам нужно установить express для создания сервера, а также модуль body-parser, который пригодится нам позднее.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install express --save
+npm install body-parser --save
+</code></pre></div></div>
+
+<p>Также не забудьте установить поддержку автодополнения для node.js:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install @types/node
+</code></pre></div></div>
+
+<hr />
+
+<p><em><strong>Задание 13.1</strong></em></p>
+
+<p>Сделайте так, чтобы при заходе на адрес http://localhost:3000/ открывалось приложение “список задач”. Затем отошлите на сервер запрос “get-todos”, в ответе на запрос должен быть массив задач, который вы затем должны отобразить на экране.</p>
+
+<hr />
+
+  </div>
+</article>
+
+      </div>
+    </main></body>
+
+</html>
